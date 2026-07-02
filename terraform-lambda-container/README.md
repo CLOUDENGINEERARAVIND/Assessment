@@ -71,3 +71,6 @@ Optional (defaults shown):
 
 Do not put secrets in environment_variables. Use Secrets Manager or SSM and read them at runtime.
 The EC2 network interface permissions in the policy are required for a Lambda that runs in a VPC.
+State backend configuration (S3 + DynamoDB lock) lives in the root/consuming config, not in
+this module. A reusable module must not declare a backend, so each caller owns its own state.
+See examples/basic/backend.tf for the pattern.
